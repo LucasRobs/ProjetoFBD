@@ -1,0 +1,92 @@
+#desktop3{
+    width: 90%;
+    max-width: 1100px;
+    display: flex;
+
+    /*alinhamento da caixa pelo lado de fora*/
+    margin: 0 auto;
+}
+
+#desktop3 form{
+    background-color: white;
+
+
+    margin-top: 80px;
+    /*preenchimento da caixa*/
+    padding: 64px;
+  
+    border-radius: 100px;
+
+    max-width: 800px;
+
+}
+
+
+#desktop3 form h3{
+    font-size: 30px;
+    margin-left: 80px;
+}
+#desktop3 form fieldset{
+    margin-top: 4px;
+
+    border: 8px;
+
+}
+
+#desktop3 form .field{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 16px;
+}
+#desktop3 form .field-group{
+    display: flex;
+
+}
+
+#desktop3 form input{
+    background-color: #f5f5f5;
+
+    border: 0;
+
+    padding: 16px 24px ;
+
+    font-size: 20px;
+
+    border-radius: 8px;
+    /*tira linha preta no campo*/
+    /*outline: none;*/
+}
+
+#desktop3 form label{
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+form .field-group .field  + .field{
+    margin-left: 16px;
+}
+
+#desktop3 form button{
+    width: 260px;
+    height: 56px;
+
+    background-color: #3A2C51;
+    border-radius: 8px;
+
+    color: white;
+
+    font-weight: bold;
+
+    font-size: 16px;
+
+    border: 0;
+
+    margin-top: 40px;
+
+    transition: 400ms;
+
+}
+#desktop3 form button:hover{
+    background-color: #2fb86e;
+}
