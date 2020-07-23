@@ -1,0 +1,67 @@
+create Database SuperMarket
+
+create table IF NOT EXISTS LoginCliente(
+	loginCliente VARCHAR(50),
+	senhaCliente VARCHAR(50),
+	statusCliente INTEGER,
+	idCliente VARCHAR(100),
+	CONSTRAINT LoginCliente_pkey PRIMARY KEY(idCliente)
+	
+);
+create table IF NOT EXISTS Cliente(
+	idCliente VARCHAR(100),
+	nomeCliente VARCHAR(50),
+	enderecoCliente VARCHAR(100),
+	telefoneCliente VARCHAR(10),
+	emailCliente VARCHAR(100),
+	imgCliente VARCHAR(100),
+	CONSTRAINT Cliente_pkey PRIMARY KEY(idCliente),
+	CONSTRAINT Cliente_fkey FOREIGN KEY(idCliente) REFERENCES LoginCliente(idCliente)
+);
+create table IF NOT EXISTS LoginAdmin(
+	loginAdmin VARCHAR(50),
+	senhaAdmin VARCHAR(50),
+	statusAdmin INTEGER,
+	nomeAdmin VARCHAR(50),
+	idAdmin VARCHAR(100),
+	CONSTRAINT LoginAdmin_pkey PRIMARY KEY(idAdmin)
+	
+);
+create table IF NOT EXISTS Tipo(
+	idTipo INTEGER,
+	nomeTipo VARCHAR(50),
+	CONSTRAINT Tipo_pkey PRIMARY KEY(idTipo)
+);
+create table IF NOT EXISTS Produtos(
+	idProduto VARCHAR(100),
+	nomeProduto VARCHAR(100),
+	precoProduto REAL,
+	descricaoProduto VARCHAR(500),
+	pesoProduto REAL,
+	imgProduto VARCHAR(100),
+	idTipo INTEGER,
+	CONSTRAINT Produtos_pkey PRIMARY KEY(idProduto),
+	CONSTRAINT Produtos_fkey FOREIGN KEY(idTipo) REFERENCES Tipo(idTipo)
+	
+);
+create table IF NOT EXISTS Log(
+	idLog INTEGER,
+	strigLog VARCHAR(200),
+	CONSTRAINT log_pkey PRIMARY KEY(idLog)
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

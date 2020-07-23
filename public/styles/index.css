@@ -21,6 +21,7 @@
     border-radius: 8px;
     margin-top: 40px;
     align-items: center;
+    height: 100%;
 }
 
 #page-login form fieldset{
