@@ -1,0 +1,79 @@
+#page-login{
+  background-color: #D1D1D1;
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#page-login .field{
+  color:#3A2C51;
+}
+
+#page-login form{
+  background-color: white;
+  border-radius: 8px;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+#page-login form fieldset{
+  border: 0;
+  display: flex;
+  width: 90%;
+  margin-bottom: 5%;
+}
+
+#page-login form .field{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+
+#page-login form input{
+  background-color: #f0f0f5;
+  flex: 1;
+  border: 0;
+  padding: 5%;
+  font-family: 'Roboto';
+  font-style: sans-serif;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 29px;
+  color: #3A2C51;
+}
+
+#page-login form button{
+  width: 100%;
+  height: 56px;
+  background-color: #3A2C51;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  border: 0;
+  margin-top: 16px;
+  transition: 400ms;
+}
+
+#page-login form button:hover{
+  background-color: #8368ad;
+}
+
+#page-login .logomarca strong{
+  display: flex;
+  margin-top: 16px;
+  align-items: center;
+  justify-content: center;
+}
+
+#page-login form img{
+  width: 30%;
+  height: 30%;  
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
