@@ -1,0 +1,48 @@
+#page-apagar{
+    position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#page-apagar form{
+    background-color: #EEEEEE;
+    padding: 64px;
+    min-width: 800px;
+    justify-content: center;
+    display: flex;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+}
+
+#page-apagar h4{
+    display: flex;
+    height: 70px;
+    font-weight: bold;
+    font-size: 16px;
+  
+    
+}
+#page-apagar .botoes{
+    height: 0;
+    position: absolute;
+}
+#page-apagar .botoes button{
+    background-color: red;
+    color: white;
+    padding: 8px 40px;
+    font-size: 16px;
+    margin-right: 40px;
+    border: 0;
+    margin-top: 50px;
+    justify-content: space-between;
+    transition: 400ms;
+}
+#page-apagar form .botoes button:hover{
+    background-color: green;
+}
+
+  

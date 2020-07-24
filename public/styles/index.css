@@ -10,8 +10,8 @@
 }
 
 #page-login .field{
-    color:#fff;
-    background-color: #000;
+    color:#3A2C51;
+   
 }
 
 #page-login form{
@@ -61,6 +61,10 @@
     margin-top: 16px;
     transition: 400ms;
 }
+#page-login form button:hover{
+    background-color: #8368ad;
+}
+
 #page-login .logomarca strong{
     display: flex;
     margin-top: 16px;
