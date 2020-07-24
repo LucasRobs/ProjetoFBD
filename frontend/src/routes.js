@@ -3,7 +3,9 @@ import{ BrowserRouter, Route, Switch} from 'react-router-dom';
 
 import Logon from './pages/logon';
 import Produtos from './pages/produtos';
-import AddProdutos from './pages/addProduto';
+import AddProduto from './pages/addProduto';
+import Cadastrar from './pages/cadastrar';
+import Apagar from './pages/apagar';
 
 /*import Profile from './pages/profile';
 import NewIncidents from './pages/NewIncident';
@@ -14,7 +16,9 @@ export default function Routes(){
       <Switch>
       <Route path="/" exact component={Logon}/>
       <Route path="/produtos" exact component={Produtos}/>
-      <Route path="/addProdutos" exact component={AddProdutos}/>
+      <Route path="/addProduto" exact component={AddProduto}/>
+      <Route path="/cadastrar" exact component={Cadastrar}/>
+      <Route path="/apagar" exact component={Apagar}/>
 
       </Switch>
     </BrowserRouter>
