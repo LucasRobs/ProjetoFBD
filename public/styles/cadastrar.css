@@ -1,0 +1,88 @@
+#page-cadastro-adm{
+    
+    width: 90%;
+    max-width: 1100px;
+    display: flex;
+    /*alinhamento da caixa pelo lado de fora*/
+    margin: 0 auto;
+}
+#page-cadastro-adm img{
+    width: 60px;
+    height: 48px;
+    margin-left: 35%;
+    margin-top: -50px;
+
+}
+#page-cadastro-adm form{
+    background-color: #EFEFEF;
+    /*preenchimento da caixa*/
+    padding: 64px;
+    max-width: 800px;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+ 
+}
+
+
+#page-cadastro-adm form h3{
+    font-size: 20px;
+    margin-left: 30px;
+    margin-bottom: 25px;
+}
+#page-cadastro-adm form fieldset{
+    margin-top: 4px;
+    border: 8px;
+}
+
+#page-cadastro-adm form .field{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 16px;
+}
+
+
+#page-cadastro-adm form input{
+    background-color: white;
+    border: 0;
+    font-size: 20px;
+    border-radius: 8px;
+    width: 300px;
+    height: 35px;
+    /*tira linha preta no campo*/
+    /*outline: none;*/
+    font-family: 'Roboto';
+    font-style: sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 29px;
+    color: #3A2C51;
+                    
+}
+
+#page-cadastro-adm form label{
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+#page-cadastro-adm form button{
+    width: 260px;
+    height: 35px;
+    background-color: #3A2C51;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    border: 0;
+    margin-left: 20px;
+    margin-top: 20px;
+    transition: 400ms;
+
+}
+#page-cadastro-adm form button:hover{
+    background-color: #8368ad;
+}
