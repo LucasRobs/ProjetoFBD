@@ -7,30 +7,26 @@
 }
 
 #page-produtos header{
-  margin-top: 48px;
+  margin-top: 5%;
   display: flex;
   justify-content: space-between;
 }
 
 #page-produtos header img{
-  width: 60px;
-  height: 48px;
-  object-fit: fill;
-  margin-top: 5px;
-  margin-left: 16px;
+  height: 70px;
+  margin-top: 1%;
+  margin-left: 1%;
 }
-
-#page-produtos header a img{
-  width: 30px;
-  height: 68px;
-  object-fit: fill;
-  margin-right: 16px;
+#page-produtos header a{
+  font-size: 500%;
+  margin-top: 1%;
+  margin-right: 1%;
 }
 
 #page-produtos h6{
   margin-left: 20px;
   margin-bottom: 20px;
-  font-size: 16px;
+  font-size: 20px;
 }
 
 .produtos{
@@ -61,6 +57,7 @@ justify-content: space-between;
   border: 2px solid  #f5f5f5;
   border-radius: 8px;
   height: 100%;
+  width: 100%;
   font-size: 16px;
 }
 

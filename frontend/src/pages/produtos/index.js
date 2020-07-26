@@ -1,32 +1,63 @@
-import React, {useState} from 'react';
-import { FiTrash2 , FiEdit , FiSend} from 'react-icons/fi';
+import React, { useState , useEffect } from 'react';
+import { FiTrash2 , FiEdit , FiPlusCircle} from 'react-icons/fi';
 import './styles.css';
 import logoImg from '../../assets/logo.svg';
-import adicionar from '../../assets/logo.svg';
+import foto from '../../assets/produto.svg';
+import api from '../../services/api';
+import { useHistory } from 'react-router-dom';
 
 export default function Produtos(){
+  const [produtos , setprodutos] =  useState([]);
+   
+  const nome = localStorage.getItem('nome');
+  const SessionId = localStorage.getItem('SessionId.data.idAdmin');
+
+  useEffect(() => {
+    api.get('',{
+      headers: {
+        Authorization: SessionId,
+      }
+    }).then(response => {
+      setprodutos(response.data);
+    })
+  }, [SessionId]);
+  /*
+  async function handleDeleteIncident(id){
+    try{
+      await api.delete(`incidents/${id}`,{
+        headers:{
+          Authorization: SessionId,
+        }
+      });
+      setprodutos(incidents.filter(incidents => incidents.id !== id));
+    }catch(err){
+      alert('erro de deletar caso');
+    
+    }
+  }
+*/
   return(
     <div id="page-produtos">
       <header>
           <img src={logoImg} alt="logomarca"/>
           <a href="addProdutos">
-              <img src="./imagens/adicionar.svg" alt=""/>
+              <FiPlusCircle color="#3A2C51"/>
           </a>
       </header>
-      <h6>Bem Vindo ao sistema de administração</h6>
+  <h6>Bem Vindo ao sistema de administração { nome }</h6>
         <div class="produtos">
           <ul>
-            <li key="1">
-                <img src="/imagens/produto.svg" alt=""/>
+          {produtos.map(produto => (
+            <li key={produto.idProduto}>
+                <img src={foto} alt=""/>
                 <div class="menu">
                 <div class="field">
-                  <strong>Cod: <h7> 1</h7></strong>
-                  <strong>Nome: <h7> Pera</h7></strong>
+                  <strong>Cod: <h7> {produto.idProduto}</h7></strong>
+                  <strong>Nome: <h7>{produto.nomeProduto}</h7></strong>
                 <div class="field-group">
-                  <strong>Preço: <h7> 2,45</h7></strong>
-                  <strong>Peso: <h7> 0.250kg</h7></strong>
+                  <strong>Preço: <h7> {produto.precoProduto}</h7></strong>
+                  <strong>Peso: <h7> {produto.pesoProduto}</h7></strong>
                 </div>
-                  <strong>Qtd: <h7> 2</h7></strong>
                 </div>
                 <div class="botoes">
                   <div class="apagar">
@@ -42,6 +73,7 @@ export default function Produtos(){
                 </div>
                 </div>
             </li>
+          ))};
           </ul>
         </div>
   </div>

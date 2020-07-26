@@ -1,73 +1,96 @@
 import React, {useState} from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 import api from '../../services/api';
 import './styles.css';
-import logoImg from '../../assets/logo.svg';
-
 export default function Logon(){
-  const[id, setId] = useState('');
+  const[nomeProduto, setnomeProduto] = useState('');
+  const[precoProduto, setprecoProduto] = useState('');
+  const[descricaoProduto, setdescricaoProduto] = useState('');
+  const[pesoProduto, setpesoProduto] = useState('');
+  const[imgProduto, setimgProduto] = useState('');
+  const[nomeTipo, setnomeTipo] = useState('');
+  
   const history = useHistory();
 
-  async function hendleLogin(e){
+  async function handleProduto(e){
     e.preventDefault();
-    try{
-        const response = await api.post('sessions', { id });
-
-        localStorage.setItem('ongId', id);
-        localStorage.setItem('ongName', response.data.name);
-        history.push('/profile');
+      try{
+        const response = await api.post('Produtos', { nomeProduto, precoProduto, descricaoProduto, pesoProduto, imgProduto, nomeTipo });
+        alert(`deu foi certo mamae hahaha`);
+        history.push('/'); 
     }catch(err){
-      alert('falha no login, tente novamente')
+      alert('falha!!! ai meu deus papai ;-;')
     }
   }
+
   return(
-    
     <div id="page-addProdutos">
+        <form onSubmit={handleProduto}>
+            <fieldset>
+                    <legend>
+                        <h3>Adicionar Produto</h3>
+                    </legend>
 
-    
-       <form action="">
-           <fieldset>
-                <legend>
-                    <h3>Adicionar Produto</h3>
-                </legend>
-
-                <div class="field">
-                    <label for="name">Nome:</label>
-                    <input type="text" name="name" required/>
-                </div>
-
-                <div class="field-group">
                     <div class="field">
-                        <label for="valor">Preço:</label>
-                        <input type="text" name="valor" required/>
-
+                        <label for="name">Nome:</label>
+                        <input 
+                        type="text" 
+                        name="name" 
+                        value={nomeProduto}  
+                        onChange={e => setnomeProduto(e.target.value)}
+                        required/>
                     </div>
-                    <div class="field">
-                        <label for="valor2">peso:</label>
-                        <input type="text" name="valor2" required/>
+                    <div class="field-group">
+                        <div class="field">
+                            <label for="valor">Preço:</label>
+                            <input 
+                            type="text" 
+                            name="valor" 
+                            value={precoProduto}  
+                            onChange={e => setprecoProduto(e.target.value)}
+                            required/>
 
+                        </div>
+                        <div class="field">
+                            <label for="valor2">peso:</label>
+                            <input 
+                            type="text" 
+                            name="valor2" 
+                            value={pesoProduto}  
+                            onChange={e => setpesoProduto(e.target.value)}
+                            required/>
+
+                        </div>
                     </div>
-                </div>
-                <div class="field">
-                    <label for="qtd">Quantidade:</label>
-                    <input type="text" name="qtd" required/>
-                </div>
-                <div class="field">
-                    <label for="img">imagem:</label>
-                    <input type="text" name="img" placeholder="Procurar documento" required/>
-                    
-                </div>
-                
-
-             
-           </fieldset>
-
-           <button type="submit">Cadastrar</button>
-
-       </form>
-</div>
-
-
+                    <div class="field-group">
+                        <div class="field">
+                            <label for="img">imagem:</label>
+                            <input type="text" 
+                            name="img" 
+                            placeholder="Procurar documento" 
+                            value={imgProduto}  
+                            onChange={e => setimgProduto(e.target.value)}
+                            required/>
+                        </div>
+                        <div class="field">
+                            <label for="tipo">Tipo:</label>
+                            <input type="text" 
+                            name="tipo" 
+                            placeholder="Procurar documento" 
+                            value={nomeTipo}  
+                            onChange={e => setnomeTipo(e.target.value)}
+                            required/>
+                        </div>
+                    </div>
+                    <textarea 
+                        placeholder="Descrição" 
+                        value={descricaoProduto}
+                        onChange={e => setdescricaoProduto(e.target.value)}
+                    />
+            </fieldset>
+            <button type="submit">Cadastrar</button>
+        </form>
+    </div>
   );
 }

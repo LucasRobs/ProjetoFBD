@@ -8,7 +8,7 @@ module.exports = {
     .offset((page - 1) * 15)
     .select('*');
 
-    res.header('total-Produtos', count['count(*)']);
+    res.header('total-Produtos', count['count()']);
     return res.json(produtos);
   },
 
@@ -16,6 +16,7 @@ module.exports = {
     const {
       nomeProduto, precoProduto,descricaoProduto,pesoProduto,imgProduto,nomeTipo
     } = req.body;
+    await connection('Produtos').where('nomeProduto', nomeProduto).select();
     await connection('Produtos').insert({
       nomeProduto,
       precoProduto,

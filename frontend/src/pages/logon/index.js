@@ -1,38 +1,50 @@
 import React, {useState} from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 import api from '../../services/api';
 import './styles.css';
 import logoImg from '../../assets/logo.svg';
 
 export default function Logon(){
-  const[id, setId] = useState('');
+  const[login, setlogin] = useState('');
+  const[senha, setsenha] = useState('');
+
   const history = useHistory();
 
-  async function hendleLogin(e){
+  async function handleLogin(e){
     e.preventDefault();
-    try{
-        const response = await api.post('sessions', { id });
-
-        localStorage.setItem('ongId', id);
-        localStorage.setItem('ongName', response.data.name);
-        history.push('/profile');
+      try{
+        const response = await api.post('login', { login, senha });
+        alert(`deu foi certo hahaha`);
+        localStorage.setItem('SessionId', response);
+        localStorage.setItem('nome', response.data.nomeAdmin);
+        history.push('/'); 
     }catch(err){
       alert('falha no login, tente novamente')
     }
   }
   return(
     <div id="page-login">  
-        <form>
+        <form onSubmit={handleLogin}>
             <img src={logoImg} alt="logomarca"/>
           <fieldset>
-            <div class="field">
-              <label for="nome"></label>
-              <input type="text" name="name" placeholder="nome" required/>
+            <div className="field">
+              <input 
+                type="text" 
+                name="name" 
+                placeholder="nome"
+                value={login}  
+                onChange={e => setlogin(e.target.value)} 
+                required/>
             </div>
-            <div class="field">
-              <label for="senha"></label>
-              <input type="password" name="senha"  placeholder="senha" required/>
+            <div className="field">
+              <input 
+                type="password" 
+                name="senha"  
+                placeholder="senha" 
+                value={senha}  
+                onChange={e => setsenha(e.target.value)}
+                required/>
             </div>
             <button type="submit">Login</button>
           </fieldset>

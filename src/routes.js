@@ -12,13 +12,7 @@ routes.post("/Produtos", ProdutosController.create);
 routes.delete("/Produtos/:id", ProdutosController.delete);
 routes.get("/Produtos/:tipo", ProdutosController.ProdutosPorTipo);
 
-routes.post("/sessions", SessionController.create);
- 
-/*routes.get("/produtos", (req, res) =>{
-  return res.render("produtos.html", { nomeADM: "Lucas"})
-})
-routes.get("/addProdutos", (req, res) =>{
-  return res.render("addProduto.html")
-})*/
+routes.post("/Login", SessionController.create);
+routes.get("/Login", SessionController.index);
 
 module .exports = routes;
