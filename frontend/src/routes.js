@@ -6,6 +6,7 @@ import Produtos from './pages/produtos';
 import AddProduto from './pages/addProduto';
 import Cadastrar from './pages/cadastrar';
 import Apagar from './pages/apagar';
+import Editar from './pages/editarproduto';
 
 export default function Routes(){
   return(
@@ -16,6 +17,7 @@ export default function Routes(){
       <Route path="/addProduto" exact component={AddProduto}/>
       <Route path="/cadastrar" exact component={Cadastrar}/>
       <Route path="/apagar" exact component={Apagar}/>
+      <Route path="/editarproduto" exact component={Editar}/>
 
       </Switch>
     </BrowserRouter>
