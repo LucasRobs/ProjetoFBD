@@ -42,7 +42,7 @@ margin: 32px auto;
 }
 .produtos ul{
 display: grid;
-grid-template-columns: 1fr 1fr 1fr;
+grid-template-columns: 1fr 1fr 1fr 1fr;
 grid-gap: 24px;
 list-style: none;
 }
@@ -74,7 +74,8 @@ font-style: oblique;
 }
 
 .produtos img{
-  width:100%;
+  width: 100%;
+  height: 300px;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
   object-fit: fill;

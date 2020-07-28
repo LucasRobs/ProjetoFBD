@@ -1,4 +1,5 @@
 const connection = require ('../../DataBase/connection');
+const { andWhere } = require('../../DataBase/connection');
 module.exports = {
   async index (req, res){
     const { page = 1 } = req.query;
@@ -32,9 +33,34 @@ module.exports = {
     await connection('Produtos').where('idProduto', id).delete();
     return res.status(204).send();
   },
-  async ProdutosPorTipo (req, res){
-    const { tipo } = req.params;
-    const produtos = await connection('Produtos').where('nomeTipo',tipo).select('*');
+  async ProdutosPorID (req, res){
+    const { id } = req.params;
+    const produtos = await connection('Produtos').where('idProduto',id).select('*');
     return res.json(produtos);
+  },
+  async EditarProduto(req, res){
+    const {
+      nomeProduto, precoProduto,descricaoProduto,pesoProduto,imgProduto,nomeTipo
+    } = req.body;
+    const { id } = req.params;
+    await connection('Produtos').where('idProduto', id).andWhere(nomeProduto != '').update(
+      nomeProduto
+    );
+    await connection('Produtos').where('idProduto', id).andWhere(pesoProduto != '').update(
+      pesoProduto
+    );
+    await connection('Produtos').where('idProduto', id).andWhere(precoProduto != '').update(
+      precoProduto
+    );
+    await connection('Produtos').where('idProduto', id).andWhere(descricaoProduto != '').update(
+      descricaoProduto
+    );
+    await connection('Produtos').where('idProduto', id).andWhere(imgProduto != null).update(
+      imgProduto
+    );
+    await connection('Produtos').where('idProduto', id).andWhere(nomeTipo != null).update(
+      nomeTipo
+    );
+    return res.json("deu certo vetim");
   },
 };

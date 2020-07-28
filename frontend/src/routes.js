@@ -17,8 +17,7 @@ export default function Routes(){
       <Route path="/addProduto" exact component={AddProduto}/>
       <Route path="/cadastrar" exact component={Cadastrar}/>
       <Route path="/apagar" exact component={Apagar}/>
-      <Route path="/editarproduto" exact component={Editar}/>
-
+      <Route path="/Editar" exact component={Editar}/>
       </Switch>
     </BrowserRouter>
   );

@@ -10,7 +10,8 @@ routes.post("/Admin", AdminController.create);
 routes.get("/Produtos", ProdutosController.index);
 routes.post("/Produtos", ProdutosController.create);
 routes.delete("/Produtos/:id", ProdutosController.delete);
-routes.get("/Produtos/:tipo", ProdutosController.ProdutosPorTipo);
+routes.get("/Produtos/:id", ProdutosController.ProdutosPorID);
+routes.put("/Editar/:id", ProdutosController.EditarProduto);
 
 routes.post("/Login", SessionController.create);
 routes.get("/Login", SessionController.index);

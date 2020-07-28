@@ -27,7 +27,7 @@ export default function Logon(){
     try{
         const response = await api.post('Admin', data);
         alert(`deu foi certo hahaha`);
-        history.push('/');
+        history.push('/login');
     }catch(err){
       if(err == 400){
         alert('Esse login ja existe!')

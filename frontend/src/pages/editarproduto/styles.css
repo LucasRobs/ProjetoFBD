@@ -1,0 +1,109 @@
+#editarprodutos{
+    width: 50%;
+    display: flex;
+    margin: 0 auto;
+  }
+  #editarprodutos form{
+    background-color: white;
+    margin-top: 3%;
+    padding: 20px 50px 00px 50px;
+    border-radius: 20px;
+    width: 100%;
+  }
+  #editarprodutos form header img{
+    margin-top: 5%;
+    padding: 10px;
+    width: 50%;
+    width: 200px;
+    height: 200px;
+  }
+  #editarprodutos form h2{
+    font-size: 30px;
+    margin-left: auto;
+  }
+  #editarprodutos form fieldset{
+    margin-top: 4px;
+    border: 8px;
+  }
+  #editarprodutos form .field{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 16px;
+  }
+
+  #editarprodutos form input{
+    background-color: #f0f0f5;
+    flex: 1;
+    border: 0;
+    padding: 16px 24px;
+    font-family: 'Roboto';
+    font-style: sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 9px;
+    border-radius: 8px;
+    color: #3A2C51;
+  }
+  #editarprodutos form label{
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+  
+  #editarprodutos form  button {
+    float: right; 
+    border:1px solid; 
+    padding: 11px 20px; 
+    vertical-align: middle; 
+    color:white;
+    background: #e02041;
+    border-radius:6px; 
+    font-size: 20px; 
+    font-family:helvetica, serif;
+    text-decoration:none;
+    margin: 5px;
+    transition: 400ms;
+    width: 80%;
+    align-items: center;
+    margin: auto;
+  }
+  #editarprodutos form  button:hover{
+    filter: brightness(70%);
+  }
+  #editarprodutos form inpor{
+    width: 100%;
+  }
+  #editarprodutos form .fieldGrup{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  #editarprodutos form .fieldGrupimg{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  #editarprodutos form .fildbotton{
+    width: 70%;
+    margin-left: 10px;
+    margin-top: 10px;
+  }
+
+  #editarprodutos form .fieldGrup img{
+    width: 50%;
+    height: 200px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    object-fit: fill;
+    margin: 10px;
+  }
+  #editarprodutos form .GrupBotton{
+    margin:auto;
+  }
+  #editarprodutos form .margin{
+    margin-left:10px;
+  }
+
+
+
+
