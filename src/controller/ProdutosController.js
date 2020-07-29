@@ -43,23 +43,8 @@ module.exports = {
       nomeProduto, precoProduto,descricaoProduto,pesoProduto,imgProduto,nomeTipo
     } = req.body;
     const { id } = req.params;
-    await connection('Produtos').where('idProduto', id).andWhere(nomeProduto != '').update(
-      nomeProduto
-    );
-    await connection('Produtos').where('idProduto', id).andWhere(pesoProduto != '').update(
-      pesoProduto
-    );
-    await connection('Produtos').where('idProduto', id).andWhere(precoProduto != '').update(
-      precoProduto
-    );
-    await connection('Produtos').where('idProduto', id).andWhere(descricaoProduto != '').update(
-      descricaoProduto
-    );
-    await connection('Produtos').where('idProduto', id).andWhere(imgProduto != null).update(
-      imgProduto
-    );
-    await connection('Produtos').where('idProduto', id).andWhere(nomeTipo != null).update(
-      nomeTipo
+    await connection('Produtos').where('idProduto', id).update(
+      req.body
     );
     return res.json("deu certo vetim");
   },

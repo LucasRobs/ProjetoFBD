@@ -13,7 +13,8 @@ export default function Logon() {
   const [imgProdutolocal, setimgProdutolocal] = useState('');
   var imgProduto = null;
   const [produtos, setprodutos] = useState([]);
-  
+
+  console.log(localStorage.getItem('nomeproduto'));
   const ProdutoId = localStorage.getItem('ProdutoId');
   const SessionId = localStorage.getItem('SessionId').idAdmin;
 
@@ -41,6 +42,12 @@ export default function Logon() {
         Authorization: SessionId,
       }
     }).then(response => {
+      setnomeProduto(response.data[0].nomeProduto);
+      setprecoProduto(response.data[0].precoProduto); 
+      setdescricaoProduto(response.data[0].descricaoProduto);
+      setpesoProduto(response.data[0].pesoProduto);
+      setnomeTipo(response.data[0].nomeTipo);
+      imgProduto = response.data[0].imgProduto;
       setprodutos(response.data);
     })
   }, [SessionId]);
@@ -56,7 +63,7 @@ export default function Logon() {
   
     }
   */
-  function voltar(){
+  function voltar() {
     history.push('/');
   }
   async function handleEditarProduto(e) {
@@ -73,12 +80,14 @@ export default function Logon() {
       }
     }).then(onSuccess)
       .catch(console.error);
+      if(imgProduto === null){
+        imgProduto = produtos[0].imgProduto;
+      }
     try {
-      
-      console.log({nomeProduto, precoProduto, descricaoProduto, pesoProduto, imgProduto, nomeTipo});
-      const response = await api.put(`Editar/${ProdutoId}`, { nomeProduto , precoProduto, descricaoProduto, pesoProduto, imgProduto, nomeTipo });
+      console.log({ nomeProduto, precoProduto, descricaoProduto, pesoProduto, imgProduto, nomeTipo });
+      const response = await api.put(`Editar/${ProdutoId}`, { nomeProduto, precoProduto, descricaoProduto, pesoProduto, imgProduto, nomeTipo });
       alert(`deu foi certo mamae hahaha`);
-      history.push('/'); 
+      history.push('/');
     } catch (err) {
       alert('falha!!! ai meu deus papai ;-;')
     }
@@ -97,30 +106,31 @@ export default function Logon() {
             <input
               type="text"
               name="name"
+              
               placeholder={produtos.nomeProduto}
               value={nomeProduto}
               onChange={e => setnomeProduto(e.target.value)}
-               />
+            />
             <div class="fieldGrup">
               <div>
                 <label for="valor">Preço:</label>
                 <input
                   type="text"
-                  name="valor"
+                  name="valor2"
                   placeholder={produtos.precoProduto}
                   value={precoProduto}
                   onChange={e => setprecoProduto(e.target.value)}
-                   />
+                />
               </div>
               <div class="margin">
                 <label for="valor2">Peso:</label>
                 <input
                   type="text"
                   name="valor2"
-                  placeholder={produtos.precoProduto}
+                  placeholder={produtos.pesoProduto}
                   value={pesoProduto}
                   onChange={e => setpesoProduto(e.target.value)}
-                   />
+                />
               </div>
             </div>
             <div class="fieldGrup">
@@ -133,16 +143,15 @@ export default function Logon() {
                       placeholder={produtos.nomeTipo}
                       value={nomeTipo}
                       onChange={e => setnomeTipo(e.target.value)}
-                       />
+                    />
                     <label for="img">imagem:</label>
                     <input type="file"
                       name="file"
                       id="file"
-                      placeholder="Procurar documento"
                       placeholder={produtos.imgProduto}
                       value={imgProdutolocal}
                       onChange={e => setimgProdutolocal(e.target.value)}
-                       />
+                    />
                   </div>
                   <img src={produtos.imgProduto} alt="produto" img />
                 </div>
