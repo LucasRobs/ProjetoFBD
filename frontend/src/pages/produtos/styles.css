@@ -63,13 +63,13 @@ justify-content: space-between;
 
 .produtos ul li strong{
   margin-top: 5px;
-  font-size: 25px;
+  font-size: 15px;
   margin-left: 10px;
 }
 
 .produtos ul li strong h7{
-color: #737380;
-font-size: 20px;
+color: #242424;
+font-size: 13px;
 font-style: oblique;
 }
 
